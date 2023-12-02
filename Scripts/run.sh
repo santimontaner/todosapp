@@ -1,1 +1,1 @@
-dotnet run --project ../Source/TodosApp/TodosApp.csproj
+dotnet run --project ./Source/TodosApp/TodosApp.csproj

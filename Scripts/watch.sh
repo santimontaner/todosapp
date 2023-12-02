@@ -1,1 +1,1 @@
-dotnet watch --project ../Source/TodosApp/TodosApp.csproj
+dotnet watch --project ./Source/TodosApp/TodosApp.csproj
