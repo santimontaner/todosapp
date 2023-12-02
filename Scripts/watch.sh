@@ -1,0 +1,1 @@
+dotnet watch --project ../Source/TodosApp/TodosApp.csproj
