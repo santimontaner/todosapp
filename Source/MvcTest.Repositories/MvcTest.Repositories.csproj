@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Automapper" Version="12.0.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../MvcTest.Model/MvcTest.DomainModel.csproj" />
+    <ProjectReference Include="..\MvcTest.Repositories.Interfaces\MvcTest.Repositories.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+@model MvcTest.ViewModels.Task.TaskViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<tr>
+    <td>@Model.Description</td>
+    <td>@Model.DueDate</td>
+    <td>
+        <div>
+            <button hx-delete
+                    hx-controller="Task"
+                    hx-action="Delete"
+                    hx-route-id="@Model.Id"
+                    hx-swap="outerHtml"
+                    class="btn fa fa-trash"/>            
+            <button hx-get
+                    hx-controller="Task"
+                    hx-action="Edit"
+                    hx-route-id="@Model.Id"                    
+                    class="btn fa fa-edit"/>            
+        </div>                
+    </td>                
+</tr>
