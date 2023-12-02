@@ -1,1 +1,1 @@
-dotnet run --project ./MvcTest/MvcTest.csproj
+dotnet run --project ./TodosApp/TodosApp.csproj
