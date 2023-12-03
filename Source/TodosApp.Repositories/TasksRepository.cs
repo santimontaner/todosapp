@@ -23,11 +23,11 @@ public class TasksRepository : ITasksRepository
         _tasksCollection = _mongoDb.GetCollection<TaskEntity>("tasks");
     }
 
-    public Task CreateTaskAsync(string description, DateTime dueDate)
+    public Task CreateTaskAsync(Guid id, string description, DateTime dueDate)
     {
         var newTask = new TaskEntity()
         {
-            Id = Guid.NewGuid(),
+            Id = id,
             Description = description,
             DueDate = dueDate
         };

@@ -4,7 +4,7 @@ namespace TodosApp.Repositories.Interfaces
 {
     public interface ITasksRepository
     {
-        public Task CreateTaskAsync(string description, DateTime dueDate);    
+        public Task CreateTaskAsync(Guid id, string description, DateTime dueDate);    
 
         public Task<IEnumerable<TaskModel>> ListTasksAsync();
         

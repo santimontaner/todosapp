@@ -3,13 +3,37 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="text-center">
-    <form asp-controller="Task" asp-action="SaveNew" method="post">
-        <label for="description">Description:</label>
-        <input asp-for="Description" id="description"/>   
-        <label for="duedate">Due date:</label>
-        <input asp-for="DueDate" type="datetime-local" id="duedate" value="@DateTime.Today.ToString("yyyy-MM-ddTHH:MM")" />
+<tr class="createEditor" _="on load or taskAdded hide me">
+    <td><input id="description" asp-for="Description" placeholder="Write description of your task"></td>
+    <td><input asp-for="DueDate" type="datetime-local" value=@DateTime.Now.ToString("yyyy-MM-ddTHH:MM")></td>        
+    <td>
+        <div>
+            <button class="btn fa fa-check"                
+                hx-post
+                hx-controller="Task"
+                hx-action="SaveNew"
+                hx-swap="beforebegin"
+                hx-target="closest tr"
+                hx-include="closest tr"
+                hx-trigger="taskAdded"
+                _="on click or keyup[key=='Enter'] from .createEditor send taskAdded then set #newButton.disabled to false"/>                                        
+            <button class="btn fa fa-eraser"
+                _="on click set value of #description to ''"/>                        
+            <button class="btn fa fa-times"
+                _="on click
+                    hide .createEditor
+                    then set #newButton.disabled to false
+                    then set value of #description to ''"/>                        
+        </div>                
+    </td>      
+</tr>
 
-        <button type="submit">Save</button>
-    </form>
-</div>
+<tr>
+    <td></td>
+    <td></td>
+    <td>
+    <button id="newButton" class="btn fa fa-plus"
+        _ = "on click show .createEditor then set me.disabled to true"/>
+    </td>
+</tr>
+

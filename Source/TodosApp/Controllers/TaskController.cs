@@ -39,8 +39,10 @@ public class TaskController : Controller
     public async Task<IActionResult> SaveNew(TaskViewModel model)
     {
         _logger.LogInformation($"SavingNew {model.Description}");
-        await _tasksRepository.CreateTaskAsync(model.Description, model.DueDate);
-        return RedirectToAction("Index");
+        var id = Guid.NewGuid();
+        await _tasksRepository.CreateTaskAsync(id, model.Description, model.DueDate);
+        model.Id = id;
+        return PartialView("_PartialEntryRow", model);
     }
 
     [Route("Task/Delete/{taskId}")]
